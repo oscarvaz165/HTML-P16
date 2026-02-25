@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Préstamos - Grupo 302</title>
+    <style>
+        /* --- ESTILOS CSS --- */
+        
+        /* Configuración básica y tipografía */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Contenedor principal del formulario */
+        .formulario-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 24px;
+            border-bottom: 2px solid #2c7be5;
+            padding-bottom: 10px;
+        }
+
+        /* Estructura de los campos */
+        .campo {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #495057;
+            font-size: 14px;
+        }
+
+        /* Inputs de texto, fecha y hora */
+        input[type="text"],
+        input[type="date"],
+        input[type="time"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2c7be5;
+            box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.2);
+        }
+
+        /* Contenedor especial para Radio Buttons */
+        .opciones-radio {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+            gap: 8px;
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .radio-item input {
+            margin-right: 8px;
+        }
+
+        /* Botón de acción */
+        .btn-registrar {
+            width: 100%;
+            padding: 14px;
+            background-color: #2c7be5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-registrar:hover {
+            background-color: #1a5fc2;
+        }
+
+        .btn-registrar:active {
+            transform: scale(0.98);
+        }
+
+        /* Grupos de fecha/hora en una sola línea para ahorrar espacio */
+        .fila-mixta {
+            display: flex;
+            gap: 10px;
+        }
+
+        .fila-mixta div {
+            flex: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="formulario-card">
+        <h2>Registro de Préstamo</h2>
+
+        <form>
+            <div class="campo">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre..." required>
+            </div>
+
+            <div class="campo">
+                <label>Carrera</label>
+                <div class="opciones-radio">
+                    <label class="radio-item"><input type="radio" name="carrera" value="civil"> Civil</label>
+                    <label class="radio-item"><input type="radio" name="carrera" value="software"> Software</label>
+                    <label class="radio-item"><input type="radio" name="carrera" value="geo"> Geodesia</label>
+                    <label class="radio-item"><input type="radio" name="carrera" value="ipi"> Procesos Ind.</label>
+                    <label class="radio-item"><input type="radio" name="carrera" value="nano"> Nanotecnología</label>
+                </div>
+            </div>
+
+            <div class="fila-mixta">
+                <div class="campo">
+                    <label for="grupo">Grupo</label>
+                    <input type="text" id="grupo" name="grupo" placeholder="Ej. 302">
+                </div>
+                <div class="campo">
+                    <label>Tipo de usuario</label>
+                    <div class="opciones-radio" style="grid-template-columns: 1fr;">
+                        <label class="radio-item"><input type="radio" name="tipo" value="alumno"> Alumno</label>
+                        <label class="radio-item"><input type="radio" name="tipo" value="profesor"> Profesor</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="objeto">Objeto del préstamo</label>
+                <input type="text" id="objeto" name="objeto" placeholder="¿Qué equipo solicitas?">
+            </div>
+
+            <label>Salida (Fecha y Hora)</label>
+            <div class="fila-mixta campo">
+                <input type="date" name="fecha_prestamo">
+                <input type="time" name="hora_prestamo">
+            </div>
+
+            <label>Devolución (Fecha y Hora)</label>
+            <div class="fila-mixta campo">
+                <input type="date" name="fecha_entrega">
+                <input type="time" name="hora_entrega">
+            </div>
+
+            <button type="submit" class="btn-registrar">Registrar préstamo</button>
+        </form>
+    </div>
+
+</body>
+</html>
